@@ -1,80 +1,40 @@
-<p align="center">
-<img src="https://user-images.githubusercontent.com/11247099/140462375-7b7ac4db-35b7-453c-8a05-13d8d20282c4.png" alt="Vitesse" width="600"/>
-</p>
+# IDGen 证件生成器
 
-<h2 align="center">
-<a href="https://github.com/antfu/vitesse">Vitesse</a> for Nuxt 4
-</h2><br>
+基于 [Vitesse](https://github.com/antfu/vitesse) for Nuxt 4 的证件信息生成工具。
 
-<p align="center">
-<br>
-<a href="https://vitesse-nuxt3.netlify.app/">🖥 Online Preview</a>
-<br><br>
-<a href="https://stackblitz.com/github/antfu/vitesse-nuxt"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz" /></a>
-</p>
+## 简介
 
-## Features
+IDGen 是一个用于生成虚构证件信息的开发测试工具，当前支持「大陆居民身份证」：
 
-- 💚 [Nuxt 4](https://nuxt.com/) - SSR, ESR, File-based routing, components auto importing, modules, etc.
+- 🗺️ 内置全国省 / 市 / 区三级行政区划数据（GB/T 2260），支持级联选择或随机地区
+- 🎂 出生日期支持指定日期、指定年龄、随机三种模式
+- 🚻 性别（男 / 女 / 随机，顺序码奇偶自动对齐）、姓名（无 / 随机 / 指定）
+- 🔢 身份证号符合 GB 11643-1999 校验码规则
+- 📦 批量生成 1 ~ 1000 条，输出格式支持详细信息 / 仅号码 / JSON
+- 📋 一键复制、下载为 txt、清空
+- 🌓 深浅色主题适配，支持 PWA 离线使用
 
-- ⚡️ Vite - Instant HMR.
+> ⚠️ 免责声明：本工具生成的所有信息均为随机虚构数据，仅用于软件开发与测试场景（如表单校验、功能演示），请勿用于任何非法用途。
 
-- 🎨 [UnoCSS](https://github.com/unocss/unocss) - The instant on-demand atomic CSS engine.
-
-- 😃 Use icons from any icon sets in Pure CSS, powered by [UnoCSS](https://github.com/unocss/unocss).
-
-- 🔥 The `<script setup>` syntax.
-
-- 🍍 [State Management via Pinia](https://github.com/vuejs/pinia), see [./app/composables/user.ts](./app/composables/user.ts).
-
-- 📑 [Layout system](./app/layouts).
-
-- 📥 APIs auto importing - for Composition API, VueUse and custom composables.
-
-- 🏎 Zero-config cloud functions and deploy.
-
-- 🦾 TypeScript, of course.
-
-- 📲 [PWA](https://github.com/vite-pwa/nuxt) with offline support and auto-update behavior.
-
-## Plugins
-
-### Nuxt Modules
-
-- [VueUse](https://github.com/vueuse/vueuse) - collection of useful composition APIs.
-- [ColorMode](https://github.com/nuxt-modules/color-mode) - dark and Light mode with auto detection made easy with Nuxt.
-- [UnoCSS](https://github.com/unocss/unocss) - the instant on-demand atomic CSS engine.
-- [Pinia](https://github.com/vuejs/pinia) - intuitive, type safe, light and flexible Store for Vue.
-- [VitePWA](https://github.com/vite-pwa/nuxt) - zero-config PWA Plugin for Nuxt 4.
-- [DevTools](https://github.com/nuxt/devtools) - unleash Nuxt Developer Experience.
-
-## IDE
-
-We recommend using [VS Code](https://code.visualstudio.com/) with [Volar](https://github.com/johnsoncodehk/volar) to get the best experience (You might want to disable [Vetur](https://vuejs.github.io/vetur/) if you have it).
-
-## Variations
-
-- [vitesse](https://github.com/antfu/vitesse) - Opinionated Vite Starter Template
-- [vitesse-lite](https://github.com/antfu/vitesse-lite) - Lightweight version of Vitesse
-- [vitesse-nuxt-bridge](https://github.com/antfu/vitesse-nuxt-bridge) - Vitesse for Nuxt 2 with Bridge
-- [vitesse-webext](https://github.com/antfu/vitesse-webext) - WebExtension Vite starter template
-
-## Try it now!
-
-### Online
-
-<a href="https://stackblitz.com/github/antfu/vitesse-nuxt"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt=""></a>
-
-### GitHub Template
-
-[Create a repo from this template on GitHub](https://github.com/antfu/vitesse-nuxt/generate).
-
-### Clone to local
-
-If you prefer to do it manually with the cleaner git history
+## 开发
 
 ```bash
-npx degit antfu/vitesse-nuxt my-nuxt-app
-cd my-nuxt-app
-pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
+pnpm i        # 安装依赖
+pnpm dev      # 本地开发
+pnpm build    # 生产构建
+pnpm preview  # 预览构建产物
 ```
+
+## 更新行政区划数据
+
+行政区划数据由 `scripts/build-divisions.mjs` 从
+[modood/Administrative-divisions-of-China](https://github.com/modood/Administrative-divisions-of-China)
+生成到 `app/data/divisions.ts`，如需更新：
+
+```bash
+node scripts/build-divisions.mjs
+```
+
+## License
+
+[MIT](./LICENSE)

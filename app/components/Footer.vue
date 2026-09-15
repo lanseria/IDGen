@@ -1,7 +1,7 @@
 <template>
-  <div text="xl gray4" m-5 flex="~ gap3" justify-center>
-    <NuxtLink i-carbon-campsite to="/" />
-    <a i-carbon-logo-github href="https://github.com/antfu/vitesse-nuxt3" target="_blank" />
+  <div class="text-gray-4 dark:text-gray-5 text-xl pb-8 flex gap-4 justify-center">
+    <NuxtLink i-carbon-home to="/" aria-label="首页" />
+    <a i-carbon-logo-github href="https://github.com/lanseria/IDGen" target="_blank" aria-label="GitHub 仓库" />
     <DarkToggle />
   </div>
 </template>
