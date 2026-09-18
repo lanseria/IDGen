@@ -35,6 +35,15 @@ pnpm preview  # 预览构建产物
 node scripts/build-divisions.mjs
 ```
 
+## 更新站点图标
+
+全套图标（favicon / PWA / apple-touch / logo）由 `scripts/build-icons.py`
+从 `scripts/icon-source.png` 生成到 `public/`，替换源图后重新生成：
+
+```bash
+uv run --with pillow --with numpy scripts/build-icons.py
+```
+
 ## License
 
 [MIT](./LICENSE)

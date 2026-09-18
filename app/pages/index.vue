@@ -8,7 +8,8 @@ useSeoMeta({
 <template>
   <div class="mx-auto px-4 pb-16 max-w-180 w-full">
     <header class="py-10 text-center">
-      <h1 class="text-2xl tracking-wide font-bold">
+      <h1 class="text-2xl tracking-wide font-bold flex items-center justify-center gap-2">
+        <img src="/logo.png" alt="IDGen" class="w-7 h-7">
         证件生成器
       </h1>
       <p class="text-sm leading-6 mt-3 op-fade">
